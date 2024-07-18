@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.tailwindcss.com/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: "Roboto Slab", serif;
+            background-color: #EEEDEB;
+        }
+    </style>
+    <title><%= book.title %> - Details</title>
+</head>
+
+<body class="bg-gray-100">
+    <div class="container mx-auto p-6">
+        <div class="bg-white rounded-lg shadow-md p-6 flex flex-col md:flex-row items-center gap-6">
+            <img src="https://covers.openlibrary.org/b/olid/<%= book.isbn %>-M.jpg" class="w-32 h-48 object-cover rounded" alt="book">
+            <div class="flex-grow">
+                <h1 class="text-2xl font-bold mb-2"><%= book.title %></h1>
+                <h2 class="text-lg text-gray-700 mb-4"><%= book.author %></h2>
+                <p id="notes" class="text-gray-600 text-sm mb-4"><%= book.review %></p>
+                <div class="flex justify-center gap-4">
+                    <form action="/book/<%= book.id %>/update" method="get">
+                        <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded shadow-md transition duration-200">Update</button>
+                    </form>
+                    <form action="/book/<%= book.id %>/delete" method="post">
+                        <button type="submit" class="bg-red-500 hover:bg-red-600 text-white font-semibold px-4 py-2 rounded shadow-md transition duration-200">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

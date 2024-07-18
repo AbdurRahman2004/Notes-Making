@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.tailwindcss.com/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Roboto Slab", serif;
+            background-color: #EEEDEB;
+        }
+
+        .container {
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .bookreview {
+            display: flex;
+            gap: 15px;
+            max-width: 650px;
+            padding: 20px;
+            background: white;
+            width: 70%;
+            border-radius: 10px;
+        }
+
+        .bookimg {
+            width: 100px;
+        }
+
+        .bookcontent {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        #date {
+            font-size: smaller;
+            color: grey;
+        }
+
+        #notes {
+            font-size: 13px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .create-post-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 999;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 1440px) {
+            .bookreview {
+                flex-direction: column;
+            }
+
+            .bookimg {
+                margin: 0 auto;
+            }
+        }
+    </style>
+    <title>Book Review</title>
+</head>
+
+<body>
+    <a href="/create" class="create-post-btn">Create Post</a>
+
+    <div class="container">
+        <% if (content.length > 0) { %>
+        <% content.forEach(post => { %>
+        <a href="/book/<%= post.id %>">
+            <div class="bookreview shadow-xl block my-5">
+                <img src="https://covers.openlibrary.org/b/olid/<%= post.isbn %>-M.jpg" class="bookimg" alt="book">
+                <div class="bookcontent">
+                    <p style="font-weight: bold;"><%= post.title %> - <%= post.author %></p>
+                    <p id="date"><%= date %></p>
+                    <% const words = post.review.split(' ').slice(0, 100).join(' '); %>
+                    <p id="notes"><%= words %><a href="/book/<%= post.id %>">...Read More</a></p>
+                </div>
+            </div>
+        </a>
+        <% }); %>
+        <% } else { %>
+        <p>No content available.</p>
+        <% } %>
+    </div>
+    <% include('footer.ejs') %>
+</body>
+
+</html>

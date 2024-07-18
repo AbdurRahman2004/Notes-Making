@@ -1,0 +1,25 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+  font-family: "Roboto Slab", serif;
+  height: 100vh;
+  background-color: #EEEDEB;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form{
+    background-image: url(./images/bg.png);
+   
+}

@@ -1,0 +1,154 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+  font-family: "Roboto Slab", serif;
+  background-color: #EEEDEB;
+  position: relative;
+}
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #F0EBE3;
+    z-index: 1000;
+}
+.header>img{
+    width: 130px;
+}
+.header>h1{
+    font-family: "Honk", system-ui;
+    align-self: center;
+    font-size: 30px;
+    align-self: center;
+}
+.row{
+    display: flex;
+    margin: 190px 19% 15px;
+    gap: 20px;
+    position: relative;
+}
+
+.nav{
+    display: flex;
+    gap: 10px;
+    margin-right: 15px;
+    align-self: center;
+}
+
+.nav>b>a{
+    text-decoration: none;
+    
+}
+
+
+.book-content{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 25%;
+}
+.profile{
+    position: fixed;
+    top: 300px;
+    left: 250px;
+    border: 1px solid rgb(168, 166, 166);
+    box-shadow: 0 0 0.5 black;
+    padding: 20px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    background-color: white;
+    
+}
+.img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 1px solid grey;
+}
+.profile>p{
+    font-size: 11px;
+    font-weight: bold;
+}
+.line{
+    width: 110px;
+    height: 1px;
+    background-color: grey;
+    align-self: start;
+}
+.brands{
+    display : flex;
+    gap: 10px;
+}
+.fa-brands{
+    cursor: pointer;
+    font-size: 20px;
+    color: #bebfc1;
+    transition: transform 0.15s;
+}
+.fa-brands:hover{
+    transform :translateY(-5px);
+    color: black;
+}
+
+.bookreview{
+    display: flex;
+    gap: 15px;
+    padding: 20px;
+    background: white;
+    width: 70%;
+    border-radius: 10px;
+}
+ .bookimg{
+    width: 100px;
+ }
+.bookcontent{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+#date{
+    font-size: smaller;
+    color: grey;
+}
+#notes{
+    font-size: 13px;
+}
+
+@media (max-width: 1440px) {
+    .row {
+        display: flex;
+        flex-direction: column;
+        margin: 150px auto 15px; /* Adjust margin for centering */
+        max-width: 90%; /* Adjust margin for centering */
+    }
+
+    .profile {
+        position: static; /* Revert to default position */
+        margin: auto; /* Center the profile card */
+        width: 250px; /* Set width if needed */
+    }
+    .bookreview{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .bookimg{
+        float: none;
+        margin: 0 auto;
+    }
+    
+}
